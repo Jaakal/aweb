@@ -1,0 +1,6 @@
+<% @who_to_follow.each do |user| %>
+  <div class="who-to-follow-profile">
+    <%= image_tag(user.photo, class: "profile-picture") %>
+    <div class="full-name"><%= user.full_name %></div>  
+  </div>
+<% end %>

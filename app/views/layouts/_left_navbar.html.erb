@@ -1,0 +1,35 @@
+<div class="left-navbar">
+  <div class="profile">
+    <div class="credentials">
+      <%= image_tag(@user.photo, class: "profile-picture") %>
+      <span class="full-name">
+        <%= @user.full_name %>
+      </span>
+    </div>
+    <div class="followings">
+      <div class="followed">
+        <div class="count"><%= @followed %></div>
+        <div>Following</div>
+      </div>
+      <div class="divider"></div>
+      <div class="followers">
+        <div class="count"><%= @followers %></div>
+        <div>Followers</div>
+      </div>
+    </div>
+  </div>
+  <div class="svg-links">
+    <%= link_to root_path do %>
+      <%= show_svg('home.svg') %>
+      <span class="text">Home</span>
+    <% end %>
+    <%= link_to '#' do %>
+      <%= show_svg('connect.svg') %>
+      <span class="text">Connect</span>
+    <% end %>
+    <%= link_to '#' do %>
+      <%= show_svg('avatar.svg') %>
+      <span class="text">Profile</span>
+    <% end %>
+  </div>
+</div>

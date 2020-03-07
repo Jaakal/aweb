@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 65px;
+  background-color: #68a5e1;
+
+  .svg-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    flex-basis: 26%;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

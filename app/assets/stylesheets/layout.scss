@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/main/Lato-Black.eot');
+  src: url('/fonts/main/Lato-Black.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/main/Lato-Black.woff2') format('woff2'),
+      url('/fonts/main/Lato-Black.woff') format('woff'),
+      url('/fonts/main/Lato-Black.ttf') format('truetype'),
+      url('/fonts/main/Lato-Black.svg#Lato-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/main/Lato-Bold.eot');
+  src: url('/fonts/main/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/main/Lato-Bold.woff2') format('woff2'),
+      url('/fonts/main/Lato-Bold.woff') format('woff'),
+      url('/fonts/main/Lato-Bold.ttf') format('truetype'),
+      url('/fonts/main/Lato-Bold.svg#Lato-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/main/Lato-Regular.eot');
+  src: url('/fonts/main/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/main/Lato-Regular.woff2') format('woff2'),
+      url('/fonts/main/Lato-Regular.woff') format('woff'),
+      url('/fonts/main/Lato-Regular.ttf') format('truetype'),
+      url('/fonts/main/Lato-Regular.svg#Lato-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/main/Lato-Light.eot');
+  src: url('/fonts/main/Lato-Light.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/main/Lato-Light.woff2') format('woff2'),
+      url('/fonts/main/Lato-Light.woff') format('woff'),
+      url('/fonts/main/Lato-Light.ttf') format('truetype'),
+      url('/fonts/main/Lato-Light.svg#Lato-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato Hairline';
+  src: url('/fonts/main/Lato-Hairline.eot');
+  src: url('/fonts/main/Lato-Hairline.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/main/Lato-Hairline.woff2') format('woff2'),
+      url('/fonts/main/Lato-Hairline.woff') format('woff'),
+      url('/fonts/main/Lato-Hairline.ttf') format('truetype'),
+      url('/fonts/main/Lato-Hairline.svg#Lato-Hairline') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Lato';
+  font-weight: normal;
+
+  .container {
+    display: flex;
+    flex-basis: 100vw;
+    max-width: 1200px;
+
+    .left {
+      flex-basis: calc(100vw * 0.16);
+      max-width: 192px;
+      height: 100%;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+
+      .content {
+        display: flex;
+        height: 100%;
+        background-color: #f5f6f8;
+        
+        main {
+          flex-grow: 1;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

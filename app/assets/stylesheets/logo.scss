@@ -161,8 +161,10 @@ $web-fonts: 'Forum', 'Nixie One', 'Emilys Candy', 'Srisakdi', 'Fredericka the Gr
 $fonts: 'Butterfly Kids', 'League Script', 'Bonbon', 'Mr Bedfort', 'Crafty Girls', 'Forum', 'Nixie One', 'Emilys Candy', 'Srisakdi', 'Fredericka the Great', 'Comfortaa', 'Poiret One', 'Srisakdi';
 
 .logo {
-  font-size: 40px;
-  
+  margin-left: 20px;
+  font-size: 25px;
+  color: white;
+
   .a {
     font-family: 'League Script';
   }

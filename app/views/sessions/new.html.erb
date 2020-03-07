@@ -1,0 +1,14 @@
+<div class="form-login-container">
+  <%= form_for(:session , url: login_path) do |f| %>
+  <h2>Sign In to Aweb</h2>
+    
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+  
+    <div>
+      <%= f.submit "Login" %>
+    </div>
+  <% end %>
+</div>

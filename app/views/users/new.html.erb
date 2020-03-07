@@ -1,0 +1,19 @@
+<div class="form-signup-container">
+  <%= form_for(:user , url: signup_path) do |f| %>
+  <h2>Sign Up to Aweb</h2>
+    
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :full_name %>
+      <%= f.text_field :full_name, class: "form-control" %>
+    </div>
+  
+    <div>
+      <%= f.submit "Signup" %>
+    </div>
+  <% end %>
+</div>

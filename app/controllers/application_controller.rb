@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
+  
   protect_from_forgery with: :exception
+  before_action :authorized
 
-  def index
-    render html: '', layout: true
+  private
+
+  def authorized
+    redirect_to login_path unless logged_in?
   end
 end
