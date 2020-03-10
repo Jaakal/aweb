@@ -6,6 +6,6 @@ class MicropostsController < ApplicationController
   
   def show
     @posts = current_user.all_the_posts_for_timeline
-    render partial: 'layouts/posts'
+    render partial: 'microposts/posts'
   end
 end

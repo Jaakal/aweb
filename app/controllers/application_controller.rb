@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include ErrorsHelper
   
   protect_from_forgery with: :exception
   before_action :authorized

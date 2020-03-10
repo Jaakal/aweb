@@ -1,9 +1,9 @@
 <div class="form-login-container">
   <%= form_for(:session , url: login_path) do |f| %>  
     <div class="logo"><span class="a">A</span><span class="web">web</span></div>
-    <div class="form-group">
+    <div class="form-group<%= login_username(flash) %>">
       <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
+      <%= f.text_field :username, class: "username-login", placeholder: login_username_placeholder(flash) %>
     </div>
   
     <%= f.submit "Login", class: 'login-button' %>
