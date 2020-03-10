@@ -1,5 +1,6 @@
 function loadJavaScript() {
   $(".refresh-button").click(function(e) {
+    console.log("Hola");
     e.preventDefault();
     $.ajax({url: "http://localhost:3000/users/search", success: function(searchResult){
       $(".who-to-follow-results").html(searchResult);

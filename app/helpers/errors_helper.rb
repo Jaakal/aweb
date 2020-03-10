@@ -1,37 +1,25 @@
 module ErrorsHelper
   def login_username(flash)
-    unless flash[:notice].nil?
-      ' error'
-    end
+    ' error' unless flash[:notice].nil?
   end
 
   def login_username_placeholder(flash)
-    unless flash[:notice].nil?
-      flash[:notice]
-    end
+    flash[:notice] unless flash[:notice].nil?
   end
 
   def username(user)
-    unless user.errors[:username].nil?
-      ' error'
-    end
+    ' error' unless user.errors[:username].nil?
   end
-  
+
   def username_placeholder(user)
-    unless user.errors[:username].empty?
-      user.errors.messages[:username].first
-    end
+    user.errors.messages[:username].first unless user.errors[:username].empty?
   end
-  
+
   def full_name(user)
-    unless user.errors[:full_name].nil?
-      ' error'
-    end
+    ' error' unless user.errors[:full_name].nil?
   end
-  
+
   def full_name_placeholder(user)
-    unless user.errors[:full_name].empty?
-      user.errors.messages[:full_name].first
-    end
+    user.errors.messages[:full_name].first unless user.errors[:full_name].empty?
   end
 end

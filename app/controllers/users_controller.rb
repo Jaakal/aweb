@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorized, only: %i[new create]
 
   def index
+    User.who_to_follow_offset ||= 0
     User.current_user = current_user
     @who_to_follow = current_user.who_to_follow
   end
@@ -12,8 +13,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.photo = Faker::Avatar.image(slug: params[:username], size: "100x100", format: "jpg")
-    @user.cover_image = Faker::LoremFlickr.image(size: "744x249", search_terms: ['nature'])
+    @user.photo = Faker::Avatar.image(slug: params[:username], size: '100x100', format: 'jpg')
+    @user.cover_image = Faker::LoremFlickr.image(size: '744x249', search_terms: ['nature'])
 
     if @user.save
       log_in @user
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def search
+    User.who_to_follow_offset += 3
     @who_to_follow = current_user.who_to_follow
     render partial: 'users/index/who_to_follow'
   end
@@ -31,8 +33,14 @@ class UsersController < ApplicationController
   def connection
     user = User.find_by(username: params[:username])
     User.current_user = user
-    @headline = params[:slug].eql?('following') ? "Your followees" : "Your followers"
-    @user_list = params[:slug].eql?('following') ? user.followees.includes(:followed_by_someone_you_follow) : user.followers.includes(:followed_by_someone_you_follow)
+    @headline = params[:slug].eql?('following') ? 'Your followees' : 'Your followers'
+
+    @user_list = if params[:slug].eql?('following')
+                   user.followees.includes(:followed_by_someone_you_follow)
+                 else
+                   user.followers.includes(:followed_by_someone_you_follow)
+                 end
+
     @who_to_follow = user.who_to_follow
   end
 
@@ -40,13 +48,13 @@ class UsersController < ApplicationController
     Following.create(follower_id: current_user.id, followed_id: params[:id])
     redirect_to user_show_path(slug: User.find(params[:id]).username)
   end
-  
+
   def unfollow
     Following.destroy(Following.where(follower_id: current_user.id, followed_id: params[:id]).first.id)
     redirect_to user_show_path(slug: User.find(params[:id]).username)
   end
-  
-  def show 
+
+  def show
     User.current_user = current_user
     @user = User.find_by(username: params[:slug])
     @posts = @user.microposts
