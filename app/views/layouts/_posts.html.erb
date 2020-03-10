@@ -1,0 +1,14 @@
+<div class="headline">
+  All posts
+</div>
+<div class="timeline-posts">
+  <% @posts.each do |post| %>
+    <div class="timeline-post">
+      <%= image_tag(post.author.photo, class: "author-profile-picture") %>
+      <div class="post-content">
+        <%= link_to post.author.full_name, user_show_path(slug: post.author.username), class: "full-name" %>
+        <div class="author-post"><%= post.text %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

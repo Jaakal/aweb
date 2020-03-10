@@ -1,0 +1,36 @@
+.headline {
+  padding-bottom: 15px;
+  font-family: 'Lato';
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #cecece;
+}
+
+.timeline-posts {
+  overflow-y: auto;
+}
+
+.timeline-post {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+
+  .author-profile-picture {
+    width: 60px;
+    height: 60px;
+  }
+
+  .post-content {
+    margin-left: 15px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .full-name {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+}

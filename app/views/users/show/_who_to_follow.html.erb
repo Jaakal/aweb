@@ -1,0 +1,18 @@
+<% @who_to_follow.each do |followee| %>
+  <div class="who-to-follow-profile">
+    <%= image_tag(followee.photo, class: "profile-picture") %>
+    <div class="wrapper">
+      <%= link_to followee.full_name, user_show_path(slug: followee.username), class: "full-name" %>
+      <div class="handler">@<%= followee.username %></div>
+    </div>
+    <div class="filler"></div>
+    <% unless followee == @current_user || followee.in?(@current_user.followees) %>
+      <div class="button-wrapper">
+        <%= button_to '', follow_user_path(followee.id), 
+            method: "POST", class: 'follow-user-button' %>
+        <span></span>
+        <span></span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

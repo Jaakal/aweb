@@ -54,6 +54,30 @@
     width: 20%;
     margin-right: 10px;
     border-radius: 50%;
-    background-color: red;
+    border: 1px solid #cecece;
   }
+
+  .full-name {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .follower-name {
+    font-size: 12px;
+
+    span {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+      text-decoration: none;
+      color: rgba(106, 166, 226, 0.8);
+    }
+  }
+}
+
+.who-to-follow-results {
+  overflow-y: auto;
 }

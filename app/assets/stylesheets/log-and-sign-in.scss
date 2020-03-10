@@ -1,0 +1,78 @@
+.form-login-container,
+.form-signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  form {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .logo {
+    display: inline-block;
+    position: absolute;
+    top: -15px;
+    padding: 0 5px;
+    margin: 0;
+    color: black;
+    background: white;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 15px 0;
+    font-family: 'Lato';
+    font-size: 13px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+
+    label {
+      margin: 0 0 6px 4px;
+      font-size: 16px;
+    }
+
+    input {
+      height: 30px;
+      padding: 0 5px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid black;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+  }
+
+  .login-button,
+  .signup-button {
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    background: none;
+    border: 1px solid black;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a {
+    display: block;
+    position: absolute;
+    left: 50px;
+    bottom: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(106, 166, 226);
+  }
+}

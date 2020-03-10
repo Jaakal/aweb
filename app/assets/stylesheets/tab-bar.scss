@@ -1,0 +1,38 @@
+.tab-bar {
+  height: 65px;
+  border-bottom: 1px solid #cecece;
+
+  .posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    border-bottom: 2px solid #f5f6f8;
+
+    .posts-button {
+      padding: 0;
+      margin: 0;
+      border: none;
+      font-family: 'Lato';
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+      background: none;
+      color: rgba(0, 0, 0, 0.3);
+  
+      &:hover {
+        cursor: pointer;
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .border-bottom {
+    border-bottom: 2px solid rgb(106, 166, 226);
+  }
+}

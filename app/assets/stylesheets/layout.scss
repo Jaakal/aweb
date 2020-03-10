@@ -64,7 +64,8 @@ body {
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  // height: 100vh;
   font-family: 'Lato';
   font-weight: normal;
 
@@ -92,9 +93,27 @@ body {
         
         main {
           flex-grow: 1;
-          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
       }
     }
   }
+
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 342px);
+  padding: 25px;
+  margin: 0 35px 35px 35px;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  background-color: white;
+  visibility: hidden;
+}
+
+.display-main-content {
+  visibility: visible;
 }

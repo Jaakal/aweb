@@ -1,0 +1,174 @@
+.padding-zero {
+  padding: 0;
+}
+
+.cover-image {
+  max-width: 744px;
+  max-height: 249.24px;
+  width: calc(0.62 * 100vw);
+  height: calc(calc(0.62 * 100vw) * 0.335);
+}
+
+.profile-posts-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-family: 'Lato';
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: none;
+  color: rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 384.24px);
+  padding: 25px;
+  margin: 35px 35px 35px 35px;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.user-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 249.24px;
+  height: calc(calc(0.62 * 100vw) * 0.335);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+
+  .full-name {
+    margin-top: 10px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+    width: 180px;
+    
+    .place-filler {
+      width: 30px;
+    }
+
+    .image-wrapper {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .rounded-profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #cecece;
+  }
+
+}
+
+.user-stats {
+  display: flex;
+  height: 65px;
+  border-top: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+  
+  .posts,
+  .following,
+  .followers {
+    flex-basis: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+
+    .count {
+      margin-bottom: 5px;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    .string {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .divider {
+    height: 65px;
+    border-left: 1px solid #cecece;
+  }
+}
+
+.followed-by {
+  flex-basis: calc(100vw * 0.22);
+  max-width: 264px;
+  padding: 0 25px;
+  font-family: 'Lato';
+  font-weight: normal;
+
+  .filler {
+    flex-grow: 1;
+  }
+
+  .handler {
+    font-size: 12px;
+    color: rgba(0, 0, 1, 0.4);
+  }
+}
+
+.button-wrapper {
+  position: relative;
+
+  span:nth-of-type(1) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    border-top: 1px solid #cecece;
+    transform: translate(-50%, -50%);
+  }
+  
+  span:nth-of-type(2) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    border-top: 1px solid #cecece;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.follow-user-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #cecece;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

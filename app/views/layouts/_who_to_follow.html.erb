@@ -1,6 +1,17 @@
-<% @who_to_follow.each do |user| %>
+<% @who_to_follow.each do |followee| %>
   <div class="who-to-follow-profile">
-    <%= image_tag(user.photo, class: "profile-picture") %>
-    <div class="full-name"><%= user.full_name %></div>  
+    <%= image_tag(followee.photo, class: "profile-picture") %>
+    <div class="wrapper">
+      <%= link_to followee.full_name, user_show_path(slug: followee.username), class: "full-name" %>
+      <div class="follower-name">
+        <% unless followee.followed_by_someone_you_follow.empty? %>
+          <span>Followed by </span>
+          <%= link_to followee.followed_by_someone_you_follow.first.full_name,
+                      user_show_path(slug: followee.followed_by_someone_you_follow.first.username) %>
+        <% else %>
+          <span>Not followed by anyone you're following</span>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>

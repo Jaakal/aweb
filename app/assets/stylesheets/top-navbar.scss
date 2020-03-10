@@ -3,14 +3,31 @@ nav {
   align-items: center;
   justify-content: space-between;
   min-height: 65px;
-  background-color: #68a5e1;
-
+  background-color: rgb(106, 166, 226);
+  
+  
   .svg-buttons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    // justify-content: space-between;
+    position: relative;
     padding: 0 25px;
     flex-basis: 26%;
+
+    .svg-button {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
 
     svg {
       width: 20px;
@@ -18,4 +35,25 @@ nav {
       fill: rgba(0, 0, 0, 0.7);
     }
   }
+}
+
+.popup-menu {
+  position: absolute;
+  right: 25px;
+  bottom: -60px;
+  width: 100px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #f5f6f8;
+  visibility: hidden;
+
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.visible {
+  visibility: visible;
 }

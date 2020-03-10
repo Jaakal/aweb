@@ -1,20 +1,20 @@
 <div class="left-navbar">
   <div class="profile">
     <div class="credentials">
-      <%= image_tag(@user.photo, class: "profile-picture") %>
+      <%= image_tag(current_user.photo, class: "profile-picture") %>
       <span class="full-name">
-        <%= @user.full_name %>
+        <%= @current_user.full_name %>
       </span>
     </div>
     <div class="followings">
       <div class="followed">
-        <div class="count"><%= @followed %></div>
-        <div>Following</div>
+        <div class="count"><%= current_user.followees.count %></div>
+        <%= link_to "Following", user_connections_path(username: current_user.username, slug: "following") %>
       </div>
       <div class="divider"></div>
       <div class="followers">
-        <div class="count"><%= @followers %></div>
-        <div>Followers</div>
+        <div class="count"><%= current_user.followers.count %></div>
+        <%= link_to "Followers", user_connections_path(username: current_user.username, slug: "followers") %>
       </div>
     </div>
   </div>
@@ -23,11 +23,7 @@
       <%= show_svg('home.svg') %>
       <span class="text">Home</span>
     <% end %>
-    <%= link_to '#' do %>
-      <%= show_svg('connect.svg') %>
-      <span class="text">Connect</span>
-    <% end %>
-    <%= link_to '#' do %>
+    <%= link_to user_show_path(slug: current_user.username) do %>
       <%= show_svg('avatar.svg') %>
       <span class="text">Profile</span>
     <% end %>

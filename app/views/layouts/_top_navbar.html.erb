@@ -1,19 +1,9 @@
 <nav class="top-navbar">
   <div class="logo"><span class="a">A</span><span class="web">web</span></div>
   <div class="svg-buttons">
-    <%= show_svg('edit.svg') %>
-    <%= show_svg('envelope.svg') %>
-    <%= show_svg('magnifying-glass.svg') %>
-    <%= show_svg('settings.svg') %>
-<%
-=begin%>
-     
-    <% if logged_in? %>
+    <%= button_tag show_svg('settings.svg'), class: 'svg-button dropdown-button' %>
+    <div class="popup-menu">
       <%= link_to "Log out", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", signup_path %>
-    <% end %> 
-<%
-=end%>
+    </div>
   </div>
 </nav>

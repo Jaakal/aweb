@@ -1,0 +1,45 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 135px);
+  padding: 25px;
+  margin: 35px 35px 35px 35px;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  background-color: white;
+
+  .scroll-wrapper {
+    overflow-y: auto;
+  }
+} 
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+  .profile-picture {
+    width: 60px;
+    height: 60px;
+  }
+
+  .wrapper {
+    margin-left: 10px;
+
+    a:nth-of-type(1) {
+      display: block;
+      margin-bottom: 5px;
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    a:nth-of-type(2) {
+      text-decoration: none;
+      color: rgba(106, 166, 226, 0.8);
+    }
+
+    span {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

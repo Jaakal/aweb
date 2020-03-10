@@ -1,0 +1,52 @@
+<div class="right-navbar padding-zero">
+  <div class="user-details-wrapper">
+    <div class="user-details">
+      <div class="wrapper">
+        <% if  @user != current_user  && !@user.in?(current_user.followees) %>
+          <div class="button-wrapper">
+            <%= button_to '', follow_user_path(@user.id), 
+                method: "POST", class: 'follow-user-button' %>
+            <span></span>
+            <span></span>
+          </div>
+        <% elsif @user != current_user %>
+          <div class="button-wrapper">
+            <%= button_to '', unfollow_user_path(@user.id), 
+                method: "POST", class: 'follow-user-button' %>
+            <span></span>
+          </div>
+        <% else %>
+          <div class="place-filler"></div>
+        <% end %>
+        <div class="image-wrapper">
+          <%= image_tag(@user.photo, class: "rounded-profile-picture") %>
+        </div>
+      </div>
+      <div class="full-name"><%= @user.full_name %></div>
+    </div>
+    <div class="user-stats">
+      <div class="posts">
+        <div class="count"><%= @user.microposts.count %></div>
+        <div class="string">Posts</div>
+      </div>
+      <div class="divider"></div>
+      <div class="following">
+        <div class="count"><%= @user.followees.count %></div>
+        <div class="string">Following</div>
+      </div>
+      <div class="divider"></div>
+      <div class="followers">
+        <div class="count"><%= @user.followers.count %></div>
+        <div class="string">Followers</div>
+      </div>
+    </div>
+  </div>
+  <div class="followed-by">
+    <div class="who-to-follow">
+      <span class="text">Followed by</span>
+    </div>
+    <div class="who-to-follow-results">
+      <%= render 'users/show/who_to_follow' %>
+    </div>
+  </div>
+</div>
