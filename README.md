@@ -2,6 +2,8 @@
 
 Project for creating database relations between users using layout design from [Layout Design](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details)
 
+Link to live version [Aweb](https://jaak-aweb.herokuapp.com/)
+
 ## Screenshot
 
 ![Screenshot of the webpage](https://github.com/Jaakal/aweb/blob/master/screenshot.png)
