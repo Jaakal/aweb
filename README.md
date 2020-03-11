@@ -8,11 +8,12 @@ Project for creating database relations between users using layout design from [
 
 ## Getting Started
 
-Clone the repository into her/his local computer.
+Clone the repository into your local computer.
 
 ### Prerequisites
 
 Ruby, '2.6.4'
+
 Ruby on Rails, '~> 6.0.2', '>= 6.0.2.1'
 
 ### Setup
@@ -86,7 +87,7 @@ heroku open
 
 - Github: [@Jaakal](https://github.com/Jaakal)
 - Twitter: [@JKivinukk](https://twitter.com/JKivinukk)
-- Linkedin: [software developer](https://www.linkedin.com/in/jaak-kivinukk-7098b1153/)
+- Linkedin: [Jaak Kivinukk](https://www.linkedin.com/in/jaak-kivinukk-7098b1153/)
 - Email: [jaak.kivinukk@gmail.com](jaak.kivinukk@gmail.com)
 
 ## License
