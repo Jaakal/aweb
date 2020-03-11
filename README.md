@@ -4,7 +4,7 @@ Project for creating database relations between users using layout design from [
 
 ## Screenshot
 
-![Screenshot of the webpage](https://github.com/Jaakal/aweb/blob/milestone1/screenshot.png)
+![Screenshot of the webpage](https://github.com/Jaakal/aweb/blob/master/screenshot.png)
 
 ## Getting Started
 
