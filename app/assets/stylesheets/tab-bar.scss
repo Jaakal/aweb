@@ -8,7 +8,7 @@
     justify-content: center;
     width: 100px;
     height: 100%;
-    border-bottom: 2px solid #f5f6f8;
+    border-bottom: 2px solid rgb(106, 166, 226);
 
     .posts-button {
       padding: 0;
@@ -32,7 +32,7 @@
     }
   }
 
-  .border-bottom {
-    border-bottom: 2px solid rgb(106, 166, 226);
-  }
+  // .border-bottom {
+  //   border-bottom: 2px solid rgb(106, 166, 226);
+  // }
 }

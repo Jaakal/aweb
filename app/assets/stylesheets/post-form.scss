@@ -9,6 +9,7 @@
     border-radius: 4px;
     background-color: white;
 
+    
     .text-field-label {
       font-family: 'Lato';
       text-transform: uppercase;
@@ -17,17 +18,17 @@
       color: rgba(0, 0, 0, 0.3);
       margin-bottom: 8px;
     }
-
+    
     .text-field {
-      padding: 10px;
+      padding: 10px 30px 10px 10px;
       border: 1px solid #cecece;
       border-radius: 2px;
-
+      
       &:focus {
         outline: none;
       }
     }
-
+    
     .post-submit-button {
       position: absolute;
       right: 35px;
@@ -36,27 +37,31 @@
       margin: 0;
       border: none;
       background: none;
-
+      
       &:hover {
         cursor: pointer;
       }
-
+      
       &:focus {
         outline: none;
       }
     }
-
+    
     svg {
       width: 18px;
       height: 18px;
     }
-
+    
     .text-field:placeholder-shown + .post-submit-button {
       visibility: hidden;
     }
-
+    
     .text-field + .post-submit-button {
       visibility: visible;
+    }
+    
+    .error {
+      border: 1px solid red;
     }
   }
 }

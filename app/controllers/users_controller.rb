@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   def index
     User.who_to_follow_offset ||= 0
     User.current_user = current_user
+    @posts = current_user.all_the_posts_for_timeline
     @who_to_follow = current_user.who_to_follow
   end
 
   def new
+    redirect_to root_path if logged_in?
     @user = User.new
   end
 
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to root_path
     else
+      @user.username = @user.full_name = ''
       render 'new'
     end
   end
@@ -33,14 +36,9 @@ class UsersController < ApplicationController
   def connection
     user = User.find_by(username: params[:username])
     User.current_user = user
-    @headline = params[:slug].eql?('following') ? 'Your followees' : 'Your followers'
-
-    @user_list = if params[:slug].eql?('following')
-                   user.followees.includes(:followed_by_someone_you_follow)
-                 else
-                   user.followers.includes(:followed_by_someone_you_follow)
-                 end
-
+    @headline = headline(params[:slug])
+    redirect_to root_path if @headline.nil?
+    @user_list = user_list(user, params[:slug])
     @who_to_follow = user.who_to_follow
   end
 

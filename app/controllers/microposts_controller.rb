@@ -1,7 +1,8 @@
 class MicropostsController < ApplicationController
   def create
-    Micropost.create(author_id: current_user.id, text: params[:micropost][:text])
-    head 200, content_type: 'text/html'
+    post = Micropost.create(author_id: current_user.id, text: params[:micropost][:text])
+    flash.notice = post.errors.messages[:text] unless post.valid?
+    redirect_to root_path
   end
 
   def show
