@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     User.who_to_follow_offset += 3
     @who_to_follow = current_user.who_to_follow
     render partial: 'users/index/who_to_follow'
+    #, :layout => :no_layout
   end
 
   def connection
