@@ -36,7 +36,9 @@ class User < ApplicationRecord
     # puts User.where.not(id: User.where(id: self).merge(User.where(id: self.followeds))).
     # includes(:followed_by_someone_you_follow).limit(3).offset(self.who_to_follow_offset)
     # puts "'''''''''''''''''''"
-
+    # puts "+++++++++++++++++++++++"
+    # puts self.who_to_follow_offset
+    # puts "+++++++++++++++++++++++"
     who_to_follow = User.where.not(id: [id] + Following.where(follower_id: id).pluck(:followed_id))
       .includes(:followed_by_someone_you_follow).order(:created_at)
       .reverse_order.limit(3).offset(who_to_follow_offset)

@@ -8,11 +8,13 @@
                 method: "POST", class: 'follow-user-button' %>
             <span></span>
             <span></span>
+            <span></span>
           </div>
         <% elsif @user != current_user %>
           <div class="button-wrapper">
             <%= button_to '', unfollow_user_path(@user.id), 
                 method: "POST", class: 'follow-user-button' %>
+            <span></span>
             <span></span>
           </div>
         <% else %>
