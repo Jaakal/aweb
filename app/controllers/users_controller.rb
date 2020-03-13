@@ -31,7 +31,6 @@ class UsersController < ApplicationController
     User.who_to_follow_offset += 3
     @who_to_follow = current_user.who_to_follow
     render partial: 'users/index/who_to_follow'
-    #, :layout => :no_layout
   end
 
   def connection
@@ -41,6 +40,7 @@ class UsersController < ApplicationController
     redirect_to root_path if @headline.nil?
     @user_list = user_list(user, params[:slug])
     @who_to_follow = user.who_to_follow
+    render partial: 'users/connection/user_list'
   end
 
   def follow
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def show
     User.current_user = current_user
     @user = User.find_by(username: params[:slug])
-    @posts = @user.microposts
+    # @posts = @user.microposts
     @who_to_follow = @user.followers.limit(3)
   end
 

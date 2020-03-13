@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get               '/users/:slug', to: 'users#show',               as: 'user_show'
 
   post               '/microposts', to: 'microposts#create',        as: 'create_post'
-  get                '/microposts', to: 'microposts#show',          as: 'display_posts'
+  get          '/microposts/:slug', to: 'microposts#user_posts',    as: 'display_user_posts'
+  get                '/microposts', to: 'microposts#all_posts',     as: 'display_all_posts'
 end

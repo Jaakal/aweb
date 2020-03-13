@@ -29,16 +29,21 @@
   }
 }
 
-.user-posts {
+.user-main-content {
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 384.24px);
+  max-height: calc(100vh - 449.24px);
   padding: 25px;
   margin: 35px 35px 35px 35px;
   border: 1px solid #cecece;
   border-radius: 4px;
   background-color: white;
   overflow-y: auto;
+  visibility: hidden;
+}
+
+.display-user-main-content {
+  visibility: visible;
 }
 
 .user-details-wrapper {

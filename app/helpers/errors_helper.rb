@@ -22,22 +22,4 @@ module ErrorsHelper
   def full_name_placeholder(user)
     user.errors.messages[:full_name].first unless user.errors[:full_name].empty?
   end
-
-  def post_form(flash)
-    @class_name = if flash[:notice].nil?
-                    ''
-                  else
-                    ' error'
-                  end
-    @class_name
-  end
-
-  def post_form_placeholder(flash)
-    @placeholder = if flash[:notice].nil?
-                     'Compose new post'
-                   else
-                     'is too long (maximum is 160 characters)'
-                   end
-    @placeholder
-  end
 end
