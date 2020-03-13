@@ -37,10 +37,14 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     User.current_user = user
     @headline = headline(params[:slug])
-    redirect_to root_path if @headline.nil?
-    @user_list = user_list(user, params[:slug])
-    @who_to_follow = user.who_to_follow
-    render partial: 'users/connection/user_list'
+    
+    if @headline.nil?
+      redirect_to root_path
+    else
+      @user_list = user_list(user, params[:slug])
+      @who_to_follow = user.who_to_follow
+      render partial: 'users/connection/user_list'
+    end
   end
 
   def follow

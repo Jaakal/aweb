@@ -84,13 +84,13 @@ RSpec.describe UsersController, type: :controller do
     it 'it renders template connection on slug following' do
       log_in user1
       get :connection, params: { username: user1.username, slug: 'following' }
-      expect(response).to render_template('users/connection')
+      expect(response).to render_template(partial: 'users/connection/_user_list')
     end
 
     it 'it renders template connection on slug followers' do
       log_in user1
       get :connection, params: { username: user1.username, slug: 'followers' }
-      expect(response).to render_template('users/connection')
+      expect(response).to render_template(partial: 'users/connection/_user_list')
     end
 
     it 'it redirects to root path if slug is wrong' do
