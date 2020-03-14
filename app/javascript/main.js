@@ -6,10 +6,6 @@ function loadJavaScript() {
   
   $(".index-posts-button").click(function(e) {
     e.preventDefault();
-    $(".tab").removeClass("border-bottom");
-    ajaxCallToServer("GET", "/microposts", ".main-content");
-    $(".main-content").addClass("display-main-content");
-    $(".index-posts-tab").addClass("border-bottom");
   });
   
   $(".show-posts-button").click(function(e) {
@@ -17,7 +13,6 @@ function loadJavaScript() {
     $(".tab").removeClass("border-bottom");
     slug = window.location.href.substring(window.location.href.lastIndexOf("/"));
     ajaxCallToServer("GET", "/microposts" + slug, ".user-main-content");
-    $(".user-main-content").addClass("display-user-main-content");
     $(".user-posts-tab").addClass("border-bottom");
   });
   
@@ -26,7 +21,6 @@ function loadJavaScript() {
     $(".tab").removeClass("border-bottom");
     username = window.location.href.substring(window.location.href.lastIndexOf("/"));
     ajaxCallToServer("GET", "/users" + username + "/following", ".user-main-content");
-    $(".user-main-content").addClass("display-user-main-content");
     $(".user-following-tab").addClass("border-bottom");
   });
   
@@ -35,7 +29,6 @@ function loadJavaScript() {
     $(".tab").removeClass("border-bottom");
     username = window.location.href.substring(window.location.href.lastIndexOf("/"));
     ajaxCallToServer("GET", "/users" + username + "/followers", ".user-main-content");
-    $(".user-main-content").addClass("display-user-main-content");
     $(".user-followers-tab").addClass("border-bottom");
   });
   
@@ -90,9 +83,7 @@ function ajaxCallToServer(action, url, elementSelector) {
 }
 
 document.addEventListener("turbolinks:load", function() {
-  setTimeout(function() { loadJavaScript(); }, 0);
-})
-
-// window.onpopstate = function() {
-//   setTimeout(function() { loadJavaScript(); }, 0);
-// }
+  setTimeout(function() { 
+    loadJavaScript(); 
+  }, 0);
+});

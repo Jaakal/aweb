@@ -8,7 +8,8 @@
       <%= image_tag(@user.cover_image, class: "cover-image") %>
       <%= render 'users/show/tab_bar' %>
       <div class="user-main-content">
-      </div>
+        <%= render 'microposts/posts' %>
+      </div> 
     </main>
     <%= render 'users/show/right_navbar' %>
   </div>

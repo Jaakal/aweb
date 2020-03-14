@@ -8,8 +8,8 @@ RSpec.feature 'Micropost', type: :feature do
     click_button 'Sign up'
   end
 
-  context 'Create micropost' do
-    it 'with valid content', js: true do
+  context 'Create micropost', js: true do
+    it 'with valid content' do
       fill_in 'Post something', with: 'New post!'
       find('.post-submit-button').click
       expect(page).to have_content('New post!')

@@ -146,39 +146,40 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe 'USER model methods for what session needs to be availabe' do
-    # it 'followed_by_someone_you_follow returns correct user' do
-    #   log_in user_1
-    #   User.current_user = user_1
-    #   Following.create(follower_id: user_1.id, followed_id: user_2.id)
-    #   Following.create(follower_id: user_2.id, followed_id: user_3.id)
-    #   expect(user_3.followed_by_someone_you_follow.first).to eq(user_2)
-    # end
+  describe 'USER model methods for which session needs to be availabe' do
+    it 'followed_by_someone_you_follow returns correct user' do
+      log_in user1
+      User.current_user = user1
+      Following.create(follower_id: user1.id, followed_id: user2.id)
+      Following.create(follower_id: user2.id, followed_id: user3.id)
+      expect(user3.followed_by_someone_you_follow.first).to eq(user2)
+    end
 
-    # it 'followed_by_someone_you_dont_follow returns correct user' do
-    #   log_in user_1
-    #   User.current_user = user_1
-    #   Following.create(follower_id: user_1.id, followed_id: user_2.id)
-    #   Following.create(follower_id: user_3.id, followed_id: user_2.id)
-    #   expect(user_2.followed_by_someone_you_dont_follow.first).to eq(user_3)
-    # end
+    it 'followed_by_someone_you_dont_follow returns correct user' do
+      log_in user1
+      User.current_user = user1
+      Following.create(follower_id: user1.id, followed_id: user2.id)
+      Following.create(follower_id: user3.id, followed_id: user2.id)
+      expect(user2.followed_by_someone_you_dont_follow.first).to eq(user3)
+    end
 
-    # it 'followed_by_someone_excluding_you returns correct users' do
-    #   log_in user_1
-    #   User.current_user = user_1
-    #   user_4 = User.create(username: 'jill', full_name: 'Jill Doe')
-    #   Following.create(follower_id: user_1.id, followed_id: user_2.id)
-    #   Following.create(follower_id: user_3.id, followed_id: user_2.id)
-    #   Following.create(follower_id: user_4.id, followed_id: user_2.id)
-    #   expect(user_1.in?(user_2.followed_by_someone_excluding_you)).to be(false)
-    # end
+    it 'followed_by_someone_excluding_you returns correct users' do
+      log_in user1
+      User.current_user = user1
+      user4 = User.create(username: 'jill', full_name: 'Jill Doe')
+      Following.create(follower_id: user1.id, followed_id: user2.id)
+      Following.create(follower_id: user3.id, followed_id: user2.id)
+      Following.create(follower_id: user4.id, followed_id: user2.id)
+      expect(user1.in?(user2.followed_by_someone_excluding_you)).to be(false)
+    end
 
-    # it 'who_to_follow returns all unfollowed users' do
-    #   log_in user_1
-    #   user_3
-    #   Following.create(follower_id: user_1.id, followed_id: user_2.id)
-    #   User.current_user = user_1
-    #   expect(user_1.who_to_follow.count).to eq(1)
-    # end
+    it 'who_to_follow returns all unfollowed users' do
+      log_in user1
+      user3
+      Following.create(follower_id: user1.id, followed_id: user2.id)
+      User.current_user = user1
+      User.who_to_follow_offset = 0
+      expect(user1.who_to_follow.count).to eq(1)
+    end
   end
 end

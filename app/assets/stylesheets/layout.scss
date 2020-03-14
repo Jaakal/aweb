@@ -65,7 +65,6 @@ body {
   justify-content: center;
   width: 100vw;
   min-height: 100vh;
-  // height: 100vh;
   font-family: 'Lato';
   font-weight: normal;
 
@@ -99,7 +98,6 @@ body {
       }
     }
   }
-
 }
 
 .main-content {
@@ -111,7 +109,7 @@ body {
   border: 1px solid #cecece;
   border-radius: 4px;
   background-color: white;
-  visibility: hidden;
+  // visibility: hidden;
 }
 
 .display-main-content {
