@@ -8,17 +8,17 @@ RSpec.feature 'Micropost', type: :feature do
     click_button 'Sign up'
   end
 
-  context 'Create micropost' do
+  context 'Create micropost', js: true do
     it 'with valid content' do
       fill_in 'Post something', with: 'New post!'
       find('.post-submit-button').click
       expect(page).to have_content('New post!')
     end
 
-    it 'with too long content' do
+    it 'with too long content', js: true do
       fill_in 'Post something', with: 'a' * 161
       find('.post-submit-button').click
-      expect(find('#micropost_text')['placeholder']).to have_content('is too long (maximum is 160 characters)')
+      expect(find('input.text-field')['placeholder']).to have_content('is too long (maximum is 160 characters)')
     end
   end
 end

@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   def create
-    post = Micropost.create(author_id: current_user.id, text: params[:micropost][:text])
-    
+    post = current_user.microposts.create(micropost_params)
+
     if post.valid?
       @posts = current_user.all_the_posts_for_timeline
       render partial: 'microposts/posts'
@@ -20,5 +20,11 @@ class MicropostsController < ApplicationController
   def all_posts
     @posts = current_user.microposts
     render partial: 'microposts/posts'
+  end
+
+  private
+
+  def micropost_params
+    params.require(:micropost).permit(:text)
   end
 end
