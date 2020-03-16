@@ -9,12 +9,12 @@
     <div class="followings">
       <div class="followed">
         <div class="current-user-count"><%= current_user.followees.count %></div>
-        <%= link_to "Following", user_connections_path(username: current_user.username, slug: "following") %>
+        <div>Following</div>
       </div>
       <div class="divider"></div>
       <div class="followers">
         <div class="current-user-count"><%= current_user.followers.count %></div>
-        <%= link_to "Followers", user_connections_path(username: current_user.username, slug: "followers") %>
+        <div>Followers</div>
       </div>
     </div>
   </div>

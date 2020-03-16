@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: %i[new create]
 
   def index
-    User.who_to_follow_offset ||= 0
+    User.who_to_follow_offset = 0
     User.current_user = current_user
     @posts = current_user.all_the_posts_for_timeline
     @who_to_follow = current_user.who_to_follow
@@ -36,10 +36,15 @@ class UsersController < ApplicationController
   def connection
     user = User.find_by(username: params[:username])
     User.current_user = user
-    @headline = headline(params[:slug])
-    redirect_to root_path if @headline.nil?
-    @user_list = user_list(user, params[:slug])
-    @who_to_follow = user.who_to_follow
+    @headline = headline(user, params[:slug])
+
+    if @headline.nil?
+      redirect_to root_path
+    else
+      @user_list = user_list(user, params[:slug])
+      @who_to_follow = user.who_to_follow
+      render partial: 'users/connection/user_list'
+    end
   end
 
   def follow

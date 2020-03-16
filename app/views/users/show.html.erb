@@ -6,9 +6,10 @@
   <div class="content">
     <main>
       <%= image_tag(@user.cover_image, class: "cover-image") %>
-      <div class="user-posts">
+      <%= render 'users/show/tab_bar' %>
+      <div class="user-main-content">
         <%= render 'microposts/posts' %>
-      </div>
+      </div> 
     </main>
     <%= render 'users/show/right_navbar' %>
   </div>

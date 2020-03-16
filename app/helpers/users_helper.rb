@@ -1,11 +1,10 @@
 module UsersHelper
-  def headline(slug)
+  def headline(user, slug)
     if slug.eql?('following')
-      @headline = 'Your followees'
+      user == current_user ? 'Your followees' : "#{user.full_name} followees"
     elsif slug.eql?('followers')
-      @headline = 'Your followers'
+      user == current_user ? 'Your followers' : "#{user.full_name} followers"
     end
-    @headline
   end
 
   def user_list(user, slug)

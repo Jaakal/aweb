@@ -1,16 +1,17 @@
 .tab-bar {
+  display: flex;
   height: 65px;
   border-bottom: 1px solid #cecece;
 
-  .posts {
+  .tab {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 100%;
-    border-bottom: 2px solid rgb(106, 166, 226);
+    border-bottom: 2px solid transparent;
 
-    .posts-button {
+    .tab-bar-button {
       padding: 0;
       margin: 0;
       border: none;
@@ -32,7 +33,7 @@
     }
   }
 
-  // .border-bottom {
-  //   border-bottom: 2px solid rgb(106, 166, 226);
-  // }
+  .border-bottom {
+    border-bottom: 2px solid rgb(106, 166, 226);
+  }
 }

@@ -1,7 +1,9 @@
-<%= form_for(:micropost, url: create_post_path, html: { class: 'micropost' }, remote: false) do |f| %>
+<form class="micropost" accept-charset="UTF-8" action="javascript:void(0);" data-remote="true">
   <div class="form-group">
-    <%= f.label :text, 'Post something', class: 'text-field-label' %>
-    <%= f.text_field :text, class: "text-field#{post_form(flash)}", placeholder: post_form_placeholder(flash) %>
-    <%= button_tag show_svg('paper-plane.svg'), class: 'post-submit-button' %>
+    <label for="text" class="text-field-label">Post something:</label>
+    <input id="text" class="text-field" placeholder="Compose a new post" name="text" type="text" />
+    <button name="button" type="submit" class="post-submit-button">
+      <%= show_svg('paper-plane.svg') %>
+    </button>
   </div>
-<% end %>
+</form>

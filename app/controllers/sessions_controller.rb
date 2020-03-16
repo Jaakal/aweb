@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
+    @user = User.find_by(username: login_params[:username])
     if @user
       User.current_user = @user
       log_in @user
@@ -20,5 +20,11 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to login_path
+  end
+
+  private
+
+  def login_params
+    params.require(:session).permit(:username)
   end
 end

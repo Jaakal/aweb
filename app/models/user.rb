@@ -23,20 +23,6 @@ class User < ApplicationRecord
   validates :full_name, presence: true, length: { maximum: 50 }
 
   def who_to_follow
-    # puts "++++++++++++++++++++"
-    # # Fastest query (4 queries total)
-    # puts User.where.not(id: [self.id] + Following.where(follower_id: self.id).pluck(:followed_id)).
-    # includes(:followed_by_someone_you_follow).limit(3).offset(self.who_to_follow_offset)
-    # puts "...................."
-    # # Second fastest query (4 queries total)
-    # puts User.where.not(id: [self.id] + self.followeds.ids).includes(:followed_by_someone_you_follow).limit(3).
-    # offset(self.who_to_follow_offset)
-    # puts "********************"
-    # # Slowest query (3 queries total)
-    # puts User.where.not(id: User.where(id: self).merge(User.where(id: self.followeds))).
-    # includes(:followed_by_someone_you_follow).limit(3).offset(self.who_to_follow_offset)
-    # puts "'''''''''''''''''''"
-
     who_to_follow = User.where.not(id: [id] + Following.where(follower_id: id).pluck(:followed_id))
       .includes(:followed_by_someone_you_follow).order(:created_at)
       .reverse_order.limit(3).offset(who_to_follow_offset)
